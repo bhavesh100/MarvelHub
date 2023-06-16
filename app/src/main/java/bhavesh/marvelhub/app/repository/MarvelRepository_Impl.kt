@@ -4,8 +4,9 @@ import bhavesh.marvelhub.app.network.MarvelApi
 import bhavesh.marvelhub.app.network.model.charactersdto.CharactersDto
 import bhavesh.marvelhub.app.util.Resource
 import java.lang.Exception
+import javax.inject.Inject
 
-class MarvelRepository_Impl(
+class MarvelRepository_Impl @Inject constructor(
     private val marvelApi: MarvelApi
 ) : MarvelRepository {
     override suspend fun getCharacters(offset: Int): Resource<CharactersDto> {
