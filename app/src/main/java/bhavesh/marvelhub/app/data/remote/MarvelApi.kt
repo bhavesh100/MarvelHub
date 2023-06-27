@@ -1,9 +1,9 @@
-package bhavesh.marvelhub.app.network
+package bhavesh.marvelhub.app.data.remote
 
-import bhavesh.marvelhub.app.network.model.charactersdto.CharactersDto
-import bhavesh.marvelhub.app.util.Constants
-import bhavesh.marvelhub.app.util.Constants.API_KEY
-import bhavesh.marvelhub.app.util.Constants.timeStamp
+import bhavesh.marvelhub.app.data.remote.dto.charactersdto.CharactersDto
+import bhavesh.marvelhub.app.common.Constants
+import bhavesh.marvelhub.app.common.Constants.API_KEY
+import bhavesh.marvelhub.app.common.Constants.timeStamp
 import retrofit2.http.GET
 import retrofit2.http.Query
 

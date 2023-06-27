@@ -1,4 +1,4 @@
-package bhavesh.marvelhub.app.util
+package bhavesh.marvelhub.app.common
 
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -9,7 +9,7 @@ object Constants {
     val timeStamp = Timestamp(System.currentTimeMillis()).time.toString()
     const val API_KEY = "981784cfa05a26fbeecc1770a2404166"
     const val PRIVATE_KEY = "8df9052739994b1ae83a9d89f4b04f3a0473a455"
-    const val LIMIT = 10
+    const val PAGE_SIZE = 20
     fun hash():String {
         val input = "$timeStamp$PRIVATE_KEY$API_KEY"
         val md = MessageDigest.getInstance("MD5")
