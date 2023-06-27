@@ -1,4 +1,5 @@
-package bhavesh.marvelhub.app.network.model.charactersdto
+package bhavesh.marvelhub.app.data.remote.dto.charactersdto
+
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,8 +12,8 @@ data class CharactersDto(
     val code: Int,
     @SerializedName("copyright")
     val copyright: String,
-    @SerializedName("`data`")
-    val `data`: Data,
+    @SerializedName("data")
+    val data: Data,
     @SerializedName("etag")
     val etag: String,
     @SerializedName("status")

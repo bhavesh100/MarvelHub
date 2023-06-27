@@ -1,6 +1,6 @@
-package bhavesh.marvelhub.app.network.model.charactersdto
+package bhavesh.marvelhub.app.data.remote.dto.charactersdto
 
-data class Comics(
+data class Events(
     val available: Int,
     val collectionURI: String,
     val items: List<Item>,

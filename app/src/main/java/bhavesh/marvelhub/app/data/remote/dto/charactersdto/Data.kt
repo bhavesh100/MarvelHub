@@ -1,4 +1,4 @@
-package bhavesh.marvelhub.app.network.model.charactersdto
+package bhavesh.marvelhub.app.data.remote.dto.charactersdto
 
 data class Data(
     val count: Int,

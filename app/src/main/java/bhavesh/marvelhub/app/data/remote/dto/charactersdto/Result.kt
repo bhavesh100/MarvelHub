@@ -1,5 +1,6 @@
-package bhavesh.marvelhub.app.network.model.charactersdto
+package bhavesh.marvelhub.app.data.remote.dto.charactersdto
 
+import bhavesh.marvelhub.app.domain.model.Character
 import com.google.gson.annotations.SerializedName
 
 data class Result(
@@ -25,4 +26,15 @@ data class Result(
     val thumbnail: Thumbnail,
     @SerializedName("urls")
     val urls: List<Url>
-)
+){
+    fun toCharacter(): Character {
+        return Character(
+            id = id,
+            name = name,
+            description = description,
+            thumbnail = thumbnail.path,
+            thumbnailExt = thumbnail.extension,
+            comics = comics.items.map { it.name }
+        )
+    }
+}
