@@ -31,8 +31,8 @@ fun CharacterListItem(
     character:Character,
     onItemClick: (Character) -> Unit
 ){
-        val link = "${character.thumbnail}.${character.thumbnailExt}"
-    val convLink = "https"+link.substring(4)
+    val url = "${character.thumbnail}.${character.thumbnailExt}"
+    val httpsUrl = "https"+url.substring(4)
 
     Card(modifier = Modifier.fillMaxWidth(0.5f)
         .padding(5.dp),
@@ -45,7 +45,7 @@ fun CharacterListItem(
             .clickable { onItemClick }
             .background(Color.Black)){
                 Box(modifier = Modifier.fillMaxSize()){
-                    Image(painter = rememberAsyncImagePainter(model = convLink),
+                    Image(painter = rememberAsyncImagePainter(model = httpsUrl),
                         contentDescription = null,
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier.fillMaxWidth()
