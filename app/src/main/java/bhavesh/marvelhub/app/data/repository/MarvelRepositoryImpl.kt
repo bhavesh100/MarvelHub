@@ -10,8 +10,8 @@ import javax.inject.Inject
 class MarvelRepositoryImpl @Inject constructor(
     private val marvelApi: MarvelApi
 ) : MarvelRepository {
-    override suspend fun getCharacters(offset: String): CharactersDto {
-            return marvelApi.getAllCharacters(offset = offset)
+    override suspend fun getCharacters(): CharactersDto {
+            return marvelApi.getAllCharacters()
     }
 
 

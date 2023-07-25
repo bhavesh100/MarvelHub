@@ -5,6 +5,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,35 +36,49 @@ fun CharacterListItem(
     val url = "${character.thumbnail}.${character.thumbnailExt}"
     val httpsUrl = "https"+url.substring(4)
 
-    Card(modifier = Modifier.fillMaxWidth(0.5f)
-        .padding(5.dp),
-        shape = RoundedCornerShape(15.dp),
-        elevation = CardDefaults.cardElevation(5.dp),
-        border = BorderStroke(2.dp,Color.Black)
-    ) {
+    Card(modifier = Modifier.fillMaxWidth()
+        .padding(10.dp)) {
+        Row {
+            Card(modifier = Modifier.fillMaxWidth(0.5f)
+                .padding(8.dp),
+                shape = RoundedCornerShape(15.dp),
+                elevation = CardDefaults.cardElevation(5.dp),
+                border = BorderStroke(2.dp,Color.Black)
+            ) {
 
-        Box(modifier = Modifier.size(200.dp)
-            .clickable { onItemClick }
-            .background(Color.Black)){
-                Box(modifier = Modifier.fillMaxSize()){
-                    Image(painter = rememberAsyncImagePainter(model = httpsUrl),
-                        contentDescription = null,
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.fillMaxWidth()
-                        .fillMaxHeight())
+                Box(modifier = Modifier.size(200.dp)
+                    .clickable { onItemClick }
+                    .background(Color.Black)){
+                    Box(modifier = Modifier.fillMaxSize()){
+                        Image(painter = rememberAsyncImagePainter(model = httpsUrl),
+                            contentDescription = null,
+                            contentScale = ContentScale.FillBounds,
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight())
+                    }
+                    Box(modifier = Modifier
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(Color.Transparent,Color.Black),
+                                startY = 400f
+                            )
+                        )
+                        .fillMaxSize())
+                    Box(contentAlignment = Alignment.BottomCenter,
+                        modifier = Modifier.fillMaxSize()){
+                        Text(text = character.name, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, color = Color.White)
+                    }
                 }
-            Box(modifier = Modifier
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(Color.Transparent,Color.LightGray),
-                        startY = 400f
-                    )
-                )
-                .fillMaxSize())
-                Box(contentAlignment = Alignment.BottomCenter,
-                modifier = Modifier.fillMaxSize()){
-                    Text(text = character.name, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, color = Color.Black)
+
+            }
+            Column {
+                character.comics.forEach {
+                    Text(text = it)
                 }
+            }
+
+
         }
+
     }
 }

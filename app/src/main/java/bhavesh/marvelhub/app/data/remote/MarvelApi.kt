@@ -8,13 +8,13 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MarvelApi {
-
     @GET("characters")
     suspend fun getAllCharacters(
         @Query("apikey")apikey:String = API_KEY,
         @Query("ts")ts: String = timeStamp,
         @Query("hash")hash: String = Constants.hash(),
-        @Query("offset")offset: String
+//        @Query("offset")offset: String,
+        @Query("limit")limit: String = "20"
     ) : CharactersDto
 
     @GET("characters")

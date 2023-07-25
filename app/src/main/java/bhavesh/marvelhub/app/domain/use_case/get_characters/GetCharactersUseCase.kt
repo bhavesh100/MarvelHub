@@ -14,13 +14,13 @@ class GetCharactersUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<Resource<List<Character>>> = flow {
         try {
-            emit(Resource.Loading<List<Character>>())
-            val characters = repository.getCharacters("20").data.results.map { it.toCharacter() }
-            emit(Resource.Success<List<Character>>(characters))
+            emit(Resource.Loading())
+            val characters = repository.getCharacters().data.results.map { it.toCharacter() }
+            emit(Resource.Success(characters))
         } catch (e:HttpException){
-            emit(Resource.Error<List<Character>>(e.localizedMessage ?: "An unexpected error occured"))
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occured"))
         } catch (e: IOException){
-            emit(Resource.Error<List<Character>>("Couldn't reach server. Check your internet connect"))
+            emit(Resource.Error("Couldn't reach server. Check your internet connect"))
         }
     }
 }
