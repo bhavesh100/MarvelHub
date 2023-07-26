@@ -1,17 +1,17 @@
 package bhavesh.marvelhub.app.presentation.character_list.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import bhavesh.marvelhub.app.domain.model.Character
 import coil.compose.rememberAsyncImagePainter
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun CharacterListItem(
     character:Character,
@@ -36,17 +37,15 @@ fun CharacterListItem(
     val url = "${character.thumbnail}.${character.thumbnailExt}"
     val httpsUrl = "https"+url.substring(4)
 
-    Card(modifier = Modifier.fillMaxWidth()
-        .padding(10.dp)) {
-        Row {
-            Card(modifier = Modifier.fillMaxWidth(0.5f)
+            Card(modifier = Modifier.height(200.dp)
+                .width(150.dp)
                 .padding(8.dp),
                 shape = RoundedCornerShape(15.dp),
                 elevation = CardDefaults.cardElevation(5.dp),
                 border = BorderStroke(2.dp,Color.Black)
             ) {
 
-                Box(modifier = Modifier.size(200.dp)
+                Box(modifier = Modifier.fillMaxSize()
                     .clickable { onItemClick }
                     .background(Color.Black)){
                     Box(modifier = Modifier.fillMaxSize()){
@@ -69,16 +68,6 @@ fun CharacterListItem(
                         Text(text = character.name, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, color = Color.White)
                     }
                 }
-
-            }
-            Column {
-                character.comics.forEach {
-                    Text(text = it)
-                }
-            }
-
-
-        }
 
     }
 }

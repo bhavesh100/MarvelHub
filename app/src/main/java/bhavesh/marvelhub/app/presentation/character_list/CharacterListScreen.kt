@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,9 +28,9 @@ fun CharacterListScreen(
 ){
     val state = viewModel.state.value
     Box (modifier = Modifier.fillMaxSize()){
-        LazyColumn (
-
-        ){
+        LazyVerticalGrid (columns = GridCells.Adaptive(150.dp),
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 0.dp)){
             items(state.characters){character ->
                 CharacterListItem(
                     character = character,

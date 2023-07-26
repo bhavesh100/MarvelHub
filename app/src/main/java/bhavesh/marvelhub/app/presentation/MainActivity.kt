@@ -31,15 +31,19 @@ class MainActivity : ComponentActivity() {
 
 
             MarvelHubTheme {
-                Column {
-                    Surface {
-                        TopAppBar(title = { Text(text = "MARVELHUB", color = Color.White, modifier = Modifier.background(color = Color.Red, shape = RoundedCornerShape(5.dp))) }, colors = TopAppBarDefaults.largeTopAppBarColors(
+                Surface {
+                    Column {
+                        TopAppBar(title = { Text(text = "MARVELHUB",
+                            color = Color.White,
+                            modifier = Modifier.
+                            background(color = Color.Red, shape = RoundedCornerShape(5.dp))) }
+                            , colors = TopAppBarDefaults.largeTopAppBarColors(
                             containerColor = Color.Transparent
                         ))
-                        }
                         CharacterListScreen()
-                }
 
+                    }
+                }
 //                    val navController = rememberNavController()
 //                    NavHost(navController = navController,
 //                        startDestination = Screen.CharacterListScreen.route
