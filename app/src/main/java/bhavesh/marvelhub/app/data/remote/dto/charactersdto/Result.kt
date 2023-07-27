@@ -34,7 +34,10 @@ data class Result(
             description = description,
             thumbnail = thumbnail.path,
             thumbnailExt = thumbnail.extension,
-            comics = comics.items.map { it.name }
+            comics = comics.items.map { it.name },
+            series = series.items.map { it.name },
+            storyName = stories.items.map { it.name },
+            storyType = stories.items.map { it.type }
         )
     }
 }

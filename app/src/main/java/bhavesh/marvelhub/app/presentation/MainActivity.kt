@@ -11,12 +11,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import bhavesh.marvelhub.app.presentation.character_list.CharacterListScreen
+
 import bhavesh.marvelhub.app.ui.theme.MarvelHubTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,10 +27,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-
             MarvelHubTheme {
                 Surface {
+
                     Column {
                         TopAppBar(title = { Text(text = "MARVELHUB",
                             color = Color.White,
@@ -40,7 +38,7 @@ class MainActivity : ComponentActivity() {
                             , colors = TopAppBarDefaults.largeTopAppBarColors(
                             containerColor = Color.Transparent
                         ))
-                        CharacterListScreen()
+                                CharacterListScreen()
 
                     }
                 }
@@ -53,26 +51,14 @@ class MainActivity : ComponentActivity() {
 //                        ){
 //                            CharacterListScreen(navController)
 //                        }
+//                        composable(
+//                            route = Screen.CharacterDetailScreen.route
+//                        ){
+//                            CharacterDetailScreen()
+//                        }
 //                    }
 //                }
             }
         }
-    }
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MarvelHubTheme {
-        Greeting("Android")
     }
 }
