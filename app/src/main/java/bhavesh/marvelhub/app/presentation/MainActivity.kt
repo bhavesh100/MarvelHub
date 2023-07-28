@@ -14,6 +14,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import bhavesh.marvelhub.app.presentation.character_list.CharacterDetailScreen
 import bhavesh.marvelhub.app.presentation.character_list.CharacterListScreen
 
 import bhavesh.marvelhub.app.ui.theme.MarvelHubTheme
@@ -42,6 +46,7 @@ class MainActivity : ComponentActivity() {
 
                     }
                 }
+//                    it making app crash
 //                    val navController = rememberNavController()
 //                    NavHost(navController = navController,
 //                        startDestination = Screen.CharacterListScreen.route

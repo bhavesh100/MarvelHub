@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import bhavesh.marvelhub.app.presentation.character_list.components.CharacterListItem
 
 @Composable
@@ -30,7 +31,7 @@ fun CharacterListScreen(
                 CharacterListItem(
                     character = character,
                     onItemClick = {
-//                        navController.navigate(Screen.CharacterDetailScreen.route+"{/$character.id}")
+//                        navController.navigate("detailed_screen")
                     }
                 )
             }
