@@ -33,7 +33,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MarvelHubTheme {
                 Surface {
-
                     Column {
                         TopAppBar(title = { Text(text = "MARVELHUB",
                             color = Color.White,
@@ -46,23 +45,6 @@ class MainActivity : ComponentActivity() {
 
                     }
                 }
-//                    it making app crash
-//                    val navController = rememberNavController()
-//                    NavHost(navController = navController,
-//                        startDestination = Screen.CharacterListScreen.route
-//                    ){
-//                        composable(
-//                            route = Screen.CharacterListScreen.route
-//                        ){
-//                            CharacterListScreen(navController)
-//                        }
-//                        composable(
-//                            route = Screen.CharacterDetailScreen.route
-//                        ){
-//                            CharacterDetailScreen()
-//                        }
-//                    }
-//                }
             }
         }
     }
