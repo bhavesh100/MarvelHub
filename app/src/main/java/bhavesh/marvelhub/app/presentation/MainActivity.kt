@@ -1,5 +1,7 @@
 package bhavesh.marvelhub.app.presentation
 
+
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,20 +21,22 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import bhavesh.marvelhub.app.presentation.character_list.CharacterDetailScreen
 import bhavesh.marvelhub.app.presentation.character_list.CharacterListScreen
-
 import bhavesh.marvelhub.app.ui.theme.MarvelHubTheme
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 
     @OptIn(ExperimentalMaterial3Api::class)
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MarvelHubTheme {
                 Surface {
+                    val navController = rememberNavController()
                     Column {
                         TopAppBar(title = { Text(text = "MARVELHUB",
                             color = Color.White,
@@ -41,8 +45,21 @@ class MainActivity : ComponentActivity() {
                             , colors = TopAppBarDefaults.largeTopAppBarColors(
                             containerColor = Color.Transparent
                         ))
-                                CharacterListScreen()
-
+                        NavHost(
+                            navController,
+                            startDestination = Screen.CharacterListScreen.route
+                        ){
+                            composable(
+                                route = Screen.CharacterListScreen.route
+                            ){
+                                CharacterListScreen(navController)
+                            }
+                            composable(
+                                route = Screen.CharacterDetailScreen.route
+                            ){
+                                CharacterDetailScreen(navController)
+                            }
+                        }
                     }
                 }
             }

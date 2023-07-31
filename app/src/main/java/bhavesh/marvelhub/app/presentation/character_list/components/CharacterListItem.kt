@@ -39,7 +39,11 @@ fun CharacterListItem(
 
             Card(modifier = Modifier.height(200.dp)
                 .width(150.dp)
-                .padding(8.dp),
+                .padding(8.dp)
+                .clickable {
+//                    Toast.makeText(LocalContext.current,character.name, Toast.LENGTH_SHORT).show()
+                           onItemClick
+                },
                 shape = RoundedCornerShape(15.dp),
                 elevation = CardDefaults.cardElevation(5.dp),
                 border = BorderStroke(2.dp,Color.Black)
@@ -64,7 +68,10 @@ fun CharacterListItem(
                         )
                         .fillMaxSize())
                     Box(contentAlignment = Alignment.BottomCenter,
-                        modifier = Modifier.fillMaxSize()){
+                        modifier = Modifier.fillMaxSize()
+//                            .clickable { onItemClick }
+                            )
+                            {
                         Text(text = character.name, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, color = Color.White)
                     }
                 }
